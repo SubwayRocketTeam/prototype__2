@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\Classes\AppDelegate.cpp" />
+    <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="..\Classes\scene\GameScene.cpp">
+      <Filter>scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\objects\Player.cpp">
+      <Filter>object</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\objects\Unit.cpp">
+      <Filter>object</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\common\resource.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\objects\KeyboardEventListener.cpp">
+      <Filter>object\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\objects\MouseEventListener.cpp">
+      <Filter>object\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\objects\Enemy.cpp">
+      <Filter>object</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\objects\EnemyPool.cpp">
+      <Filter>object</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\objects\EnemySpawner.cpp">
+      <Filter>object</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Classes\AppDelegate.h" />
+    <ClInclude Include="..\Classes\AppMacros.h" />
+    <ClInclude Include="..\Classes\HelloWorldScene.h" />
+    <ClInclude Include="main.h" />
+    <ClInclude Include="..\Classes\scene\GameScene.h">
+      <Filter>scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\objects\Player.h">
+      <Filter>object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\objects\Unit.h">
+      <Filter>object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\common\resource.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\objects\MouseEventListener.h">
+      <Filter>object\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\objects\KeyboardEventListener.h">
+      <Filter>object\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\objects\Enemy.h">
+      <Filter>object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\objects\EnemyPool.h">
+      <Filter>object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\objects\EnemySpawner.h">
+      <Filter>object</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="scene">
+      <UniqueIdentifier>{5e5fa51b-28b4-43da-b7ff-ff5997b34aec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="object">
+      <UniqueIdentifier>{21303214-06e2-4615-b33a-a5b1528e0755}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common">
+      <UniqueIdentifier>{ad8c0b96-9362-45de-ac56-fcdd3962dd63}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="object\common">
+      <UniqueIdentifier>{ca7c8225-c6ea-4e61-a412-d8508272d14f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
