@@ -12,14 +12,23 @@ void MouseEventListener::enableMouseInput(
 	Node *target){
 
 	mouseListener = EventListenerMouse::create();
-	mouseListener->onMouseMove = [this](Event *e){
-		onMouseMove((EventMouse*)e);
+	mouseListener->onMouseMove = [this](Event *event){
+		EventMouse *e = (EventMouse*)event;
+		onMouseMove(
+			e->getMouseButton(),
+			e->getCursorX(), e->getCursorY());
 	};
-	mouseListener->onMouseUp = [this](Event *e){
-		onMouseDown((EventMouse*)e);
+	mouseListener->onMouseUp = [this](Event *event){
+		EventMouse *e = (EventMouse*)event;
+		onMouseDown(
+			e->getMouseButton(),
+			e->getCursorX(), e->getCursorY());
 	};
-	mouseListener->onMouseDown = [this](Event *e){
-		onMouseUp((EventMouse*)e);
+	mouseListener->onMouseDown = [this](Event *event){
+		EventMouse *e = (EventMouse*)event;
+		onMouseUp(
+			e->getMouseButton(),
+			e->getCursorX(), e->getCursorY());
 	};
 
 	target->getEventDispatcher()->
@@ -33,17 +42,17 @@ void MouseEventListener::disableMouseInput(){
 }
 
 void MouseEventListener::onMouseMove(
-	EventMouse *e){
+	int btn, float x,float y){
 
 	cocos2d::log("onMouseMove : override me");
 }
 void MouseEventListener::onMouseDown(
-	EventMouse *e){
+	int btn, float x,float y){
 
 	cocos2d::log("onMouseDown : override me");
 }
 void MouseEventListener::onMouseUp(
-	EventMouse *e){
+	int btn, float x,float y){
 
 	cocos2d::log("onMouseUp : override me");
 }

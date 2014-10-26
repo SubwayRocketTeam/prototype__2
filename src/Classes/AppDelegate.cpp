@@ -6,6 +6,8 @@
 #include "AppMacros.h"
 
 #include "scene/GameScene.h"
+#include "common/config.h"
+#include "common/PhysicsFactory.h"
 
 using namespace cocos2d;
 using namespace std;
@@ -23,20 +25,25 @@ bool AppDelegate::applicationDidFinishLaunching() {
         director->setOpenGLView(glview);
     }
 
+	PhysicsFactory::create();
+
+	config::from_file("physics\\bullet.phy");
+	config::from_file("physics\\enemy.phy");
+	config::from_file("physics\\player.phy");
+
 	glview->setDesignResolutionSize(
 		800,600, ResolutionPolicy::SHOW_ALL);
 	glview->setFrameSize(
 		800,600);
 
-
-    director->setOpenGLView(glview);
-    director->setDisplayStats(true);
-    director->setAnimationInterval(1.0 / 60);
-
-    auto scene = GameScene::scene();
-    director->runWithScene(scene);
-
-    return true;
+	director->setOpenGLView(glview);
+	director->setDisplayStats(true);
+	director->setAnimationInterval(1.0 / 60);
+	
+	auto scene = GameScene::scene();
+	director->runWithScene(scene);
+	
+	return true;
 }
 
 void AppDelegate::applicationDidEnterBackground() {

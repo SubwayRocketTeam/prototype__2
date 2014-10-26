@@ -12,11 +12,11 @@ protected:
 	void disableMouseInput();
 
 	virtual void onMouseMove(
-		cocos2d::EventMouse *e);
+		int btn, float x,float y);
 	virtual void onMouseDown(
-		cocos2d::EventMouse *e);
+		int btn, float x,float y);
 	virtual void onMouseUp(
-		cocos2d::EventMouse *e);
+		int btn, float x,float y);
 
 private:
 	cocos2d::Node *target;

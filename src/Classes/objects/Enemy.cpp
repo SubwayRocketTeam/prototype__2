@@ -1,6 +1,7 @@
 #include "Enemy.h"
 
 #include "common/resource.h"
+#include "common/PhysicsFactory.h"
 
 using namespace cocos2d;
 
@@ -26,16 +27,15 @@ bool Enemy::init(){
     return true;
 }
 bool Enemy::initPhysics(){
-	auto pbody = 
-		PhysicsBody::createBox(body->getContentSize() - Size(0,5));
-	
-	pbody->setAngularVelocityLimit(0);
-	pbody->setAngularDamping(1);
-	pbody->setRotationEnable(true);
-	
-	setPhysicsBody(pbody);
+	auto factory = PhysicsFactory::getInstance();
+	auto pbody = factory->make("enemy");
 
-	return true;
+	if(pbody){
+		setPhysicsBody(pbody);
+		return true;
+	}
+	
+	return false;
 }
 
 void Enemy::focus(){

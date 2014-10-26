@@ -1,9 +1,10 @@
 #include "Player.h"
 
 #include "EnemyPool.h"
+#include "Bullet.h"
 
 #include "common/resource.h"
-
+#include "common/PhysicsFactory.h"
 
 using namespace std;
 using namespace cocos2d;
@@ -38,16 +39,15 @@ bool Player::init(){
     return true;
 }
 bool Player::initPhysics(){
-	auto pbody = 
-		PhysicsBody::createCircle(50);
-	
-	pbody->setAngularVelocityLimit(0);
-	pbody->setAngularDamping(1);
-	pbody->setRotationEnable(false);
-	
-	setPhysicsBody(pbody);
+	auto factory = PhysicsFactory::getInstance();
+	auto pbody = factory->make("player");
 
-	return true;
+	if(pbody){
+		setPhysicsBody(pbody);
+		return true;
+	}
+	
+	return false;
 }
 
 void Player::processRotation(
@@ -124,6 +124,18 @@ void Player::processAttack(
 	if(btn == MOUSE_BUTTON_LEFT){
 
 	}
+	else if(btn == MOUSE_BUTTON_RIGHT){
+		auto bullet = Bullet::create();
+		auto pos = getPosition();
+		Vec2 norm = Vec2(x-pos.x, y-pos.y);
+		
+		norm.normalize();
+
+		bullet->fire(norm.x,norm.y, 50000);
+		bullet->setPosition(getPosition());
+
+		getParent()->addChild(bullet);
+	}
 }
 
 void Player::onKeyboardDown(
@@ -140,10 +152,7 @@ void Player::onKeyboardPressed(
 }
 
 void Player::onMouseMove(
-	EventMouse *e){
-
-	float x = e->getCursorX();
-	float y = e->getCursorY();
+	int btn, float x,float y){
 
 	processEyeline(x,y);
 	processRotation(x,y);
@@ -151,8 +160,10 @@ void Player::onMouseMove(
 	cursor.set(x,y);
 }
 void Player::onMouseDown(
-	EventMouse *e){
+	int btn, float x,float y){
+
+	processAttack(btn, x,y);
 }
 void Player::onMouseUp(
-	EventMouse *e){
+	int btn, float x,float y){
 }

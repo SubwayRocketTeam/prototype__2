@@ -24,8 +24,7 @@ Scene* GameScene::scene(){
 bool GameScene::init(){
     if (!Layer::init())
         return false;
-    
-	
+
 	auto pool = EnemyPool::create();
 	auto spawner = EnemySpawner::create();
 

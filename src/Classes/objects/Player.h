@@ -32,11 +32,11 @@ protected:
 		cocos2d::EventKeyboard::KeyCode keycode);
 
 	virtual void onMouseMove(
-		cocos2d::EventMouse *e);
+		int btn, float x,float y);
 	virtual void onMouseDown(
-		cocos2d::EventMouse *e);
+		int btn, float x,float y);
 	virtual void onMouseUp(
-		cocos2d::EventMouse *e);
+		int btn, float x,float y);
 
 protected:
 	Player();

@@ -11,6 +11,11 @@ public:
 		actionAttack,
 		actionFocus,
 	};
+	enum CollisionChannel{
+		channelPlayer = 0x0000000F,
+		channelBullet = 0x000000F0,
+		channelEnemy = 0x00000F00,
+	};
 
 public:
 	static Unit *create();
